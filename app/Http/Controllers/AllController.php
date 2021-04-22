@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Batiment;
+use App\Models\Eleve;
+use App\Models\Formation;
+use App\Models\Typeformation;
 use Illuminate\Http\Request;
 
 class AllController extends Controller
@@ -11,19 +15,23 @@ class AllController extends Controller
     }
 
     public function batiment(){
-        return view('batiment');
+        $batiments = Batiment::all();
+        return view('batiment', compact('batiments'));
     }
 
     public function formation(){
-        return view('formation');
+        $formations = Formation::all();
+        return view('formation', compact('formations'));
     }
 
     public function typeformation(){
-        return view('typeformation');
+        $typeformations = Typeformation::all();
+        return view('typeformation', compact('typeformations'));
     }
 
     public function eleve(){
-        return view('eleve');
+        $eleves = Eleve::all();
+        return view('eleve', compact('eleves'));
     }
 
     
